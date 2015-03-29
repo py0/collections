@@ -1,0 +1,1324 @@
+#BC = below code
+#AC = above code
+
+#Print is the python function to print to console
+
+#Escaping characters(example):'This isn\'t flying, this is falling with style!'
+
+#You can access a character by its index, like this:"Ryan"[3] will give you "n"
+
+#String methods let you perform specific tasks for strings:
+    # len(), lower(), upper(), str(), range(), sum(), round()
+    #Dot notation: "string".upper()/lower() as opposed to len/str("string")
+
+# range function if you only include one argument:
+range(1) # => [0]         # starts at index 0 and increments by 1 until 1
+range(2) # => [0,1]       # less than the range
+
+# range function if you include two arguments:
+range(1,3) # => [1,2]   # first arg is start of range, second arg is 1 less than range
+
+# range function if you include three arguments:
+range(2,8,3) # => [2,5]    # first arg is start of range, second arg is 1 less than
+range(2,9,3) # => [2,5,8]  # range and last arg is the incremental increase.
+
+#string Concatenation combines strings with the + operator(strings only tho)
+    #unlike print a, b which will leave a space btw a & b, concat. won't
+    #to use nonstrings with concat., use the str(nonstring) function
+
+#Placeholders(string formatting with %):
+    #string_1 = "Camelot"
+    #string_2 = "place"
+    #print "Let's not go to %s. 'Tis a silly %s." % (string_1, string_2)
+def Welcomer():
+    x = raw_input('What is your name?')
+    print 'What\'s really good mah nigga, %s?' % (x)
+#Placeholders - %s is for strings while %d is for integers
+
+#Date/Time:
+    #from datetime import datetime
+    #now = datetime.now()
+    #print str(now.month) + "/" + str(now.day) + "/" + str(now.year)
+    #print str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
+    #print str(now.month) + "/" + str(now.day) + "/" + str(now.year) + " " + str(now.hour) + ":" + str(now.minute) + ":" + str(now.second)
+
+#Conditional statements:
+def greater_less_equal_5(answer):
+    if answer > 5:
+        return 1
+    elif answer < 5:
+        return -1
+    else:
+        return 0
+print greater_less_equal_5(4)
+print greater_less_equal_5(5)
+print greater_less_equal_5(6)
+
+#Pig Latin Translator:
+pyg = 'ay'
+original = raw_input('Enter a word:')
+word = original.lower()
+first = word[0]
+newword = word + pyg
+new_word =  word[1:] + first + pyg
+if len(original) > 0 and original.isalpha():
+    if first in 'a, e, i, o, u':  #or if first=='a' or first =='b' or etc...
+        print newword
+    else:
+        print new_word
+else:
+    print 'empty'
+
+#Functions:
+def cube(n):
+    return n**3
+def by_three(n):
+    if n % 3 == 0:
+        print cube(n)
+    else:
+        return 'False'
+
+from math import * #Universal Import
+print sqrt(25)  #This import method should not be used as it loads all
+                #functions without taking into consideration of already
+                #set variables which have now been redefined.
+
+import math  #Generic Import
+print math.sqrt(25)
+
+from math import sqrt    #Function Import
+print sqrt(25)
+
+import math            # Imports the math module
+everything = dir(math) # Sets everything to a list of things from math
+print everything       # Prints 'em all!
+
+#Built-in Functions (no module loading(importing) necessary):
+#-len(), str(), string.upper, string.lower, max(), min(), abs(), string.isalpha(), type()--[int, float, unicode{string}]
+
+#Lists:
+zoo_animals = ["pangolin", "cassowary", "sloth", "cat"]
+if len(zoo_animals) > 3:
+	print "The first animal at the zoo is the " + zoo_animals[0]
+	print "The second animal at the zoo is the " + zoo_animals[1]
+	print "The third animal at the zoo is the " + zoo_animals[2]
+	print "The fourth animal at the zoo is the " + zoo_animals[3]
+#Lists in python are 'mutable', meaning they can be changed anytime.
+suitcase = []
+suitcase.append("sunglasses")
+suitcase.append("lotion")
+suitcase.append("bathing suit")
+suitcase.append("towel")
+list_length = len(suitcase)
+print "There are %d items in the suitcase." % (list_length)
+print suitcase
+# List slicing - list_name[a:b] will return a portion of list_name
+# starting with the index a and ending before the index b
+suitcase = ["sunglasses", "hat", "passport", "laptop", "suit", "shoes"]
+first =    suitcase[0:2]# sunglasses, hat
+middle =   suitcase[2:4]# passport, laptop
+last =     suitcase[4:6]# suit, shoes
+
+# appending items to an already populated list:
+n = [3, 5, 7]
+def list_extender(n):
+    n.append(9)
+    return n
+print list_extender(n)
+
+my_list[:2]
+# Grabs the first two items
+my_list[3:]
+# Grabs the fourth through last items
+
+animals = "catdogfrog"
+cat =    animals[:3]# The first three characters of animals
+dog =    animals[3:6]# The fourth through sixth characters
+frog =   animals[6:]# From the seventh character to the end
+
+animals = ["aardvark", "badger", "duck", "emu", "fennec fox"]
+duck_index = animals.index('duck')    # Use index() to find "duck"
+animals.insert(duck_index, 'cobra')# Your code here!
+print animals #cobra will be added before duck
+
+n = [3,5,7]
+def list_function(x): # this function modifies the list and prints the new list
+    x[1]+=3
+    print x
+    return x
+list_function(n)
+
+# 3 ways to remove an item in a list: eg - n = [1, 3, 5]
+# n.pop(1) will remove and return 3 (number at index 1)
+# n.remove(1) will just remove the item at said index
+# del(n[1]) will delete the index item without returning.
+# if no index is given, the last item will be deleted.
+
+#dictionaries are like lists but you access values with a key instead of an index
+# Assigning a dictionary with three key-value pairs to residents:
+residents = {'Puffin' : 104, 'Sloth' : 105, 'Burmese Python' : 106}
+print residents['Puffin'] # Prints Puffin's room number
+print residents['Sloth'] #prints '105'
+print residents['Burmese Python'] #prints '106'
+
+#like lists, dictionaries are mutable:
+menu = {} # Empty dictionary
+menu['Chicken Alfredo'] = 14.50 # Adding new key-value pair
+print menu['Chicken Alfredo']
+# Your code here: Add some dish-price pairs to menu!
+menu['Chicken Bolognese'] = 13.50
+menu['Beef Linguini'] = 15.50
+menu['Shrimp Scampi'] = 15.99
+print "There are " + str(len(menu)) + " items on the menu."
+print menu
+
+# key - animal_name : value - location
+zoo_animals = { 'Unicorn' : 'Cotton Candy House',
+'Sloth' : 'Rainforest Exhibit',
+'Bengal Tiger' : 'Jungle House',
+'Atlantic Puffin' : 'Arctic Exhibit',
+'Rockhopper Penguin' : 'Arctic Exhibit'}
+# A dictionary (or list) declaration may break across multiple lines
+# Removing the 'Unicorn' entry. (Unicorns are incredibly expensive.)
+del zoo_animals['Unicorn']
+# Your code here!
+del zoo_animals['Sloth']
+del zoo_animals['Bengal Tiger']
+zoo_animals['Rockhopper Penguin'] = 'Arctic Enclosure' #value is changed from arc. exhib. to arc. encl.
+print zoo_animals
+
+inventory = {'gold' : 500,
+'pouch' : ['flint', 'twine', 'gemstone'], # Assigned a new list to 'pouch' key
+'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']}
+# Adding a key 'burlap bag' and assigning a list to it
+inventory['burlap bag'] = ['apple', 'small ruby', 'three-toed sloth']
+# Sorting the list found under the key 'pouch'
+inventory['pouch'].sort()
+# Here the dictionary access expression takes the place of a list name
+# Your code here
+inventory['pocket'] = ['seashell', 'strange berry', 'lint']
+inventory['backpack'].sort()
+inventory['backpack'].remove('dagger')
+inventory['gold'] = inventory['gold'] + 50
+print inventory
+
+#for(loop) - focus is for(loops) with dictionaries/lists:
+my_list = [1,9,3,8,5,7]
+for number in my_list:
+    print 2 * number #multiplies every # in my_list by 2
+
+start_list = [5, 3, 1, 2, 4] #multiply start_list by 2, populate that data into square_list then sort.
+square_list = []
+for number in start_list:
+    square_list.append(number**2)
+    square_list.sort()
+print square_list
+
+names = ["Adam","Alex","Mariah","Martine","Columbus"]
+for n in names: #prints all names
+    print n
+
+# below function takes in an arbitrary number of arguments(*args):
+m = 5
+n = 13
+def add_function(*args):
+    return sum(args)
+print add_function(m, n)
+
+# A simple dictionary
+# dictionaries are unordered so when you loop through a dictionary
+# you are not guaranteed to get them in any particular order
+d = {"foo" : "bar"}
+for key in d:
+    print d[key]  # prints "bar"
+
+webster = {
+	"Aardvark" : "A star of a popular children's cartoon show.",
+    "Baa" : "The sound a goat makes.",
+    "Carpet": "Goes on the floor.",
+    "Dab": "A small amount."
+}
+for define in webster:
+    print webster[define] # prints all the definitions
+    print webster['Aardvark'] # prints 'A star of a popular children's...'
+
+#control flow & looping(combining if with for):
+a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+for num in a:
+    if num % 2 == 0:
+        print num # prints out all even numbers in the list
+
+for letter in "Codecademy":
+    print letter
+# above string loop will list all letters in 'Codeacademy'
+print # prints two spaced rows between above & below code
+print
+word = "Programming is fun!"
+for letter in word:
+    # Only print out the letter i in the string stored in 'word'
+    if letter == "i":
+        print letter
+
+prices = {
+    "banana": 4,
+    "apple": 2,
+    "orange": 1.5,
+    "pear": 3
+}
+stock = {
+    'banana': 6,
+    'apple': 0,
+    'orange': 32,
+    'pear': 15
+}
+for items in prices and stock: #this is what gets printed in console:
+# orange
+# price: 1.5
+# stock: 32 etc...
+    print items
+    print 'price: ' + str(prices[items])
+    print 'stock: ' + str(stock[items])
+
+prices = {
+    "banana": 4,
+    "apple": 2,
+    "orange": 1.5,
+    "pear": 3
+}
+stock = {
+    "banana": 6,
+    "apple": 0,
+    "orange": 32,
+    "pear": 15
+}
+total = 0
+for items in prices and stock:
+    total += prices[items] * stock[items]  # x += y == x = x + y
+    print total  #prints total inventory value
+
+tyler = { 'name': 'Tyler',
+'homework': [],  # when you're entering an empty list in a dict, use []
+'quizzes': [],
+'tests': []
+}
+
+# This code block will print out each name followed by their
+# respective grades
+lloyd = {
+    "name": "Lloyd",
+    "homework": [90.0, 97.0, 75.0, 92.0],
+    "quizzes": [88.0, 40.0, 94.0],
+    "tests": [75.0, 90.0]
+}
+alice = {
+    "name": "Alice",
+    "homework": [100.0, 92.0, 98.0, 100.0],
+    "quizzes": [82.0, 83.0, 91.0],
+    "tests": [89.0, 97.0]
+}
+tyler = {
+    "name": "Tyler",
+    "homework": [0.0, 87.0, 75.0, 22.0],
+    "quizzes": [0.0, 75.0, 78.0],
+    "tests": [100.0, 100.0]
+}
+students = [lloyd, alice, tyler]
+for grades in students:
+    print str(grades['name'])
+    print str(grades['homework'])
+    print str(grades['quizzes'])
+    print str(grades['tests'])
+
+# this block of code will average a bunch of figures
+lloyd = {
+    "name": "Lloyd",
+    "homework": [90.0, 97.0, 75.0, 92.0],
+    "quizzes": [88.0, 40.0, 94.0],
+    "tests": [75.0, 90.0]
+}
+alice = {
+    "name": "Alice",
+    "homework": [100.0, 92.0, 98.0, 100.0],
+    "quizzes": [82.0, 83.0, 91.0],
+    "tests": [89.0, 97.0]
+}
+tyler = {
+    "name": "Tyler",
+    "homework": [0.0, 87.0, 75.0, 22.0],
+    "quizzes": [0.0, 75.0, 78.0],
+    "tests": [100.0, 100.0]
+}
+def average(list_num): # avg
+    return float(sum(list_num)) / len(list_num)
+def get_average(student): # weighted avg
+    hw = average(student['homework']) * .1
+    qz = average(student['quizzes']) * .3
+    ts = average(student['tests']) * .6
+    return hw + qz + ts
+def get_letter_grade(score): # assigning letter grade
+    if score >= 90:
+        return 'A'
+    elif score >= 80:
+        return 'B'
+    elif score >= 70:
+        return 'C'
+    elif score >= 60:
+        return 'D'
+    elif score < 60:
+        return 'F'
+print get_letter_grade(get_average(lloyd))
+def get_class_average(classlist): # class avg
+    classavg = 0
+    for x in classlist:
+        classavg += get_average(x)
+    return float(classavg / len(classlist))
+# or:
+def get_class_average(classlist): # class avg - same result as above
+    classavg = float(get_average(lloyd) + get_average(alice) + get_average(tyler)) / 3
+    return classavg
+students = [lloyd, alice, tyler]
+print get_class_average(students) # prints class average
+
+# lists and functions:
+n = [3, 5, 7]
+def print_list(x):
+    for i in range(0, len(x)):
+        print x[i]
+print_list(n) # this function will print out the values in the list n, one by one.
+
+n = [3, 5, 7]
+def double_list(x): # this function multiplies each value in the list by 2 and prints the results
+    for i in range(0, len(n)): # range function says iterate the function for each value from index 0 to the length of n
+        x[i] = x[i] * 2 # multiply each value in the list by 2
+    return x
+print double_list(n)
+
+# two methods of iterating through lists:
+# method 1: # is easier but can cause problems when modifying list
+for item in list:
+    print item
+#method 2: # is much safer
+for i in range(len(list)):
+    print list[i]
+
+m = [1, 2, 3]
+n = [4, 5, 6]
+def join_lists(x, y):  # appends n to the end of m
+    for i in range(0, len(y)):
+        x.append(y[i])
+    return x
+print join_lists(m, n)
+
+# adding lists together
+m = [1, 2, 3]
+n = [4, 5, 6]
+o = [7, 8, 9]
+def join_lists(*args):
+    s = []
+    for x in range(0, len(args)):
+        s += args[x]
+    return s
+print join_lists(m, n, o)
+# adding lists within a list together
+n = [[1, 2, 3], [4, 5, 6, 7, 8, 9]]
+def flatten(x):
+    newflatten = []
+    for i in range(0, len(x)):
+        newflatten += x[i]
+    return newflatten
+print flatten(n)
+
+# string = 'hello'
+# 'a' in string will evaluate to False.  conversely, 'e' in string would be True.
+
+# code below sets up a 5x5 gaming board:
+board = []
+for x in range(5):
+    board.append(['O']*5)
+def print_board(board):
+    for row in board:
+        print ' '.join(row) # this built in function concatenates the 'o's in each row.
+print_board(board)
+
+# random - built in python module:
+# randint(x,y) - generates random integer between x and y:
+# from random import randint
+
+#break - command that will end a for loop:
+#you must attach an if statement before the break to show in case something is true,
+#the loop should break.
+
+#Battleship:
+from random import randint
+board = []
+for x in range(5):
+    board.append(["O"] * 5)
+def print_board(board):
+    for row in board:
+        print " ".join(row)
+print "Let's play Battleship!"
+print_board(board)
+def random_row(board):
+    return randint(0, len(board) - 1)
+def random_col(board):
+    return randint(0, len(board[0]) - 1)
+ship_row = random_row(board)
+ship_col = random_col(board)
+print ship_row #debugging to print location of
+print ship_col #ship
+for turn in range(4):
+    print "turn:", turn + 1
+    guess_row = int(raw_input("Guess Row: "))
+    guess_col = int(raw_input("Guess Col: "))
+    if guess_row == ship_row and guess_col == ship_col:
+        print "Congratulations! You sunk my battleship!"
+        break # stops the loop here since the answer is correct.  NN for further guessing
+    else:
+        if (guess_row < 0 or guess_row > 4) or (guess_col < 0 or guess_col > 4):
+            print "Oops, that's not even in the ocean."
+        elif board[guess_row][guess_col] == "X":
+            print "You guessed that one already."
+        else:
+            print "You missed my battleship!"
+            board[guess_row][guess_col] = "X"
+        if turn == 3:
+            print 'Game Over'
+    print_board(board)
+
+#while loops: unlike if loops which will execute a code if something is true, while
+#loops will execute a code while something is true so it will keep executing the code
+#as long as the condition is true.
+count = 0
+#the bottom if condition will only print the string once.
+if count < 5:
+    print "Hello, I am an if statement and count is", count
+#the bottom while condition will keep executing until the condition is no longer
+#true (loop will stop when count reaches 5)
+while count < 5:
+    print "Hello, I am a while and count is", count
+    count += 1
+#bottom code will list 1-10 squared on its own line:
+num = 1
+while num <= 10:  # Fill in the condition (before the colon)
+    print num ** 2   # Print num squared
+    num += 1   # Increment num (make sure to do this or it will loop forever)
+#A common application of a while loop is to check user input to see if it is valid.
+#For example, if you ask the user to enter y or n and they instead enter 7, then you
+#should re-prompt them for input:
+choice = raw_input('Enjoying the course? (y/n)')
+while choice != 'y' and choice != 'n': #prompts user to keep entering until a valid ans is given.
+    choice = raw_input("Sorry, I didn't catch that. Enter again: ")
+
+#Break:
+count = 0
+while True:
+    print count
+    count += 1 # without the rest, this code will go on forever (infinite loop)
+    if count >= 10: # this conditional breaks the otherwise infinite loop.
+        break
+
+#Something completely different about Python is the while/else construction.
+#while/else is similar to if/else, but there is a difference: the else block
+#will execute anytime the loop condition is evaluated to False. This means that
+#it will execute if the loop is never entered or if the loop exits normally.
+#If the loop exits as the result of a break, the else will not be executed.
+#In this example, the loop will break if a 5 is generated, and the else will not execute.
+#Otherwise, after 3 numbers are generated, the loop condition will become false and the else will execute:
+import random
+print "Lucky Numbers! 3 numbers will be generated."
+print "If one of them is a '5', you lose!"
+count = 0
+while count < 3:
+    num = random.randint(1, 6)
+    print num
+    if num == 5:
+        print "Sorry, you lose!"
+        break
+    count += 1
+else:
+    print "You win!"
+
+# While/Else statements: guess a # from 1-10, you have 3 tries.
+from random import randrange
+random_number = randrange(1, 10)
+count = 0
+num = randrange(1, 10)
+#print num #Debugging purposes
+while count < 3:
+    guess = int(raw_input('Enter a guess: '))
+    count += 1
+    if guess == num:
+        print 'You win!'
+        break
+else:
+    print 'You lose.'
+
+# For loops:
+print "Counting..."
+for i in range(20):  # prints 0 to 19
+    print i
+
+hobbies = []
+for i in range(3):  # asks user to enter 3 hobbies and appends them to the hobbies list
+    hob = raw_input('Enter a hobby:')
+    hobbies.append(hob)
+
+word = "eggs!"
+for i in word:  # prints out each character in the string, word.
+    print i
+
+s = "A bird in the hand..."
+for i in s:  # prints out each character in 's' but replaces every a/A with X
+    if i == 'a' or i == 'A':
+        print 'X', # Commas are used so each character is on the same line
+    else:
+        print i, # without commas, each character would be on its own line
+print #prints empty line
+
+numbers  = [7, 9, 12, 54, 99]
+print "This list contains: "
+for num in numbers: # prints each num in number(each number in the list)
+    print num
+for sq in numbers: #prints each num in number squared
+    square = sq ** 2
+    print square
+
+#when you print lists/dict, each item will be printed on its own line.
+#When you do print "string", 6 python will transform 6 into a string for you.
+#However, if you try to concatenate the two using +, it will throw an error
+#because you can't combine an int and a str.
+
+d = {'x': 9, 'y': 10, 'z': 20}
+for key in d: # prints each key followed by a space then its value on its own line
+    print key, str(d[key])
+
+#below code will print each item on the list with the index number before the item:
+#enumerate function is used to give indexes to each item in the list you iterate thru
+choices = ['pizza', 'pasta', 'salad', 'nachos']
+print 'Your choices are:'
+for index, item in enumerate(choices):
+    print index + 1, item #the +1 is used to start from index 1 and not 0
+
+#It's also common to need to iterate over two lists at once. This is where the built-in zip function comes in handy.
+#zip will create pairs of elements when passed two lists, and will stop at the end of the shorter list.
+#zip can handle three or more lists as well!
+list_a = [3, 9, 17, 15, 19]
+list_b = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
+for a, b in zip(list_a, list_b):
+    print max(a, b) #prints the bigger list
+
+#just like while/else, there are for/else loops:
+#below will list each f in fruit until it reaches tomato, where it will break.
+#else is not evaluated since the code breaks in the if block:
+fruits = ['banana', 'apple', 'orange', 'tomato', 'pear', 'grape']
+print 'You have...'
+for f in fruits:
+    if f == 'tomato':
+        print 'A tomato is not a fruit!'
+        break
+    print 'A', f
+else:
+    print 'A fine selection of fruits!'
+
+#below is modified verision of above code but it will print every fruit on the
+#list except tomato which is replaced with another string and the else statement
+#is also executed:
+fruits = ['banana', 'apple', 'orange', 'tomato', 'pear', 'grape']
+print 'You have...'
+for f in fruits:
+    if f == 'tomato':
+        print 'A tomato is not a fruit!'
+    else:
+        print 'A', f
+else:
+    print 'A fine selection of fruits!'
+
+#function that takes a number x and returns true if even and false if odd:
+def is_even(x):
+    if x % 2 == 0:
+        return True
+    else:
+        return False
+#is_even(0) would return True while is_even(1) would return False
+
+#below function takes in x and if it's an integer, it returns true
+#if x is not an integer then it returns false
+#although 7.0 is a float, it is equal to the integer of 7 so
+#is_int(7.0) would evaluate to true even tho its a float:
+def is_int(x):
+    if x == int(x):
+        return True
+    else:
+        return False
+
+#to get the rightmost digit in a number, you can modulo (%) the number by 10.
+#to remove the rightmost digit in a number, you can floor divide (//) by 10.
+#BC sums the digits in the input of the function, 'digit_sum':
+def digit_sum(n):
+    total = 0
+    while n > 0:
+        total += n % 10
+        n = n // 10
+    return total
+digit_sum(1234) #this should evaluate to 10 = 1+2+3+4
+#BC is another way to code AC:
+def digit_sum(n):
+    nNew = str(n) #convert number to string
+    total = 0 #initialize the total
+    for i in range(0,len(nNew)): #iterate for the length of the string
+        total += int(nNew[i])  #incrementing
+    return total #returns the sum of the digits in the input, 'n'.
+
+#BC calculates the factorial of an input:
+def factorial(x):
+    i = 1
+    while x > 0:
+        i *= x
+        x -= 1
+    return i
+factorial(4) #4*3*2*1
+
+#BC will return your input of x in reverse - reverse('Python!') = !nohtyP :
+def reverse(text):
+    n = len(text)
+    txet = ""
+    while n > 0:
+        y = str(text[n-1])
+        txet += y
+        n -= 1
+    return txet
+
+#BC will return input of x without the vowels:
+def anti_vowel(text):
+    vowels = ["A", "E", "I", "O", "U"]
+    anti_vowel=""
+    for i in text:
+        if i.upper() in vowels:
+            pass
+        else:
+            anti_vowel = anti_vowel + i
+    return anti_vowel
+
+#BC totals your scrabble score for a given input:
+score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
+         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3,
+         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1,
+         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4,
+         "x": 8, "z": 10}
+def scrabble_score(word):
+    total = []
+    for letter in word:
+        total.append(score[letter.lower()])
+    return sum(total)
+print scrabble_score("Helix") #should equal 15 pts
+
+#BC takes in two strings, x & y and replaces every instance of y in x:
+def censor(text, word):
+    output = []
+    for item in text.split():
+        if item != word:
+            output.append(item)
+        else:
+            output.append("*" * len(item))
+    return " ".join(output)
+#BC is a shorter way of AC:
+def censor(text, word):
+     text = text.replace(word, "*" * len(word))
+     return text
+
+#BC is a cube root finder:
+x = int(raw_input('Enter an integer: '))
+for ans in range(0, abs(x)+1):
+    if ans**3 == abs(x):
+        break
+if ans**3 != abs(x):
+    print(str(x) + ' is not a perfect cube')
+else:
+    if x < 0:
+        ans = -ans
+    print('Cube root of ' + str(x) + ' is ' + str(ans))
+
+#BC will count how many instances of item in sequence:
+def count(sequence, item):
+    count = 0
+    for i in sequence:
+        if i == item:
+            count += 1
+    return count
+#count([1,2,1,1], 1) should return 3 cuz 1 appears 3x in the sequence
+#BC is same as AC:
+def count(sequence, item):
+    return sum([1 for i in sequence if i == item])
+
+#BC will take in a list of numbers and remove the odd and give back a new list
+#with just the even numbers:
+def purify(nums):
+    even = []
+    for x in nums:
+        if x % 2 == 0:
+            even.append(x)
+    return even
+
+#BC will take in a list of numbers and return the product of each number:
+def product(digs):
+    totalprod = 1  #if you started with 0, your product will return as 0.
+    for x in digs:
+        totalprod *= x
+    return totalprod
+
+#BC will take in a list of numbers and give you back a new list without any dupes:
+def remove_duplicates(x):
+    newlist = []
+    for i in x:
+        if i not in newlist:
+            newlist.append(i)
+    return newlist
+
+#BC will take a list of numbers, sort them and return the median value:
+def median(lst):
+    sortlist = sorted(lst) #builtin python function that sorts your list
+    if len(lst) % 2 == 1:  #this will take care of a list with odd numbered list
+        return sortlist[len(lst)/2]
+    else: #even numbered list takes the two median values, adds them and / by 2
+        return (sortlist[len(lst)/2] + sortlist[len(lst)/2 - 1]) / 2.0
+
+#BC's are from the same chapter:
+#BC takes in the grades and lists them on its own line:
+grades = [100, 100, 90, 40, 80, 100, 85, 70, 90, 65, 90, 85, 50.5]
+def print_grades(scores):
+    for i in scores:
+        print i,
+#BC returns the sum of the grades:
+grades = [100, 100, 90, 40, 80, 100, 85, 70, 90, 65, 90, 85, 50.5]
+def grades_sum(scores):
+    sum = 0
+    for i in scores:
+        sum += i
+    return sum
+print sum(grades) #this is for debugging purposes
+#BC takes the above function(sum) and divides by len(grades) to get the average:
+def grades_average(scores):
+    return (grades_sum(scores))/float(len(scores))
+#BC finds the variance:
+def grades_variance(g, f=0):
+    average = grades_average(g)
+    variance = 0
+    for score in g:
+        variance += (average - score)**2
+    return variance/float(len(g))
+#BC calculates standard deviation:
+def grades_std_deviation(variance):
+    return variance ** (0.5) #raising a number to .5 is same as taking sq root.
+
+#BC prints out dict, which are unordered:
+my_dict = {
+    'Name': 'Pyo',
+    'Age': 28,
+    'Location': 'NYC'
+}
+print my_dict.items() #items() lists keys/values in dict but separates key/value with ',' and not ':'
+print my_dict.keys() #prints just the keys in the dict and is not ordered
+print my_dict.values() #prints just the values in dict and is not ordered
+
+#You can think of a tuple as an immutable (that is, unchangeable) list (though this is
+#an oversimplification); tuples are surrounded by ()s and can contain any data type.
+
+#trailing commas after print functions ensure all prints are done on same line:
+for number in range(5):
+    print number,
+d = { "name": "Eric", "age": 26 }
+for key in d:
+    print key, d[key],
+for letter in "Eric":
+    print letter,  # note the comma!
+#output = 0 1 2 3 4 age 26 name Eric E r i c
+
+#BC prints out all even numbers in the range(51):
+evens_to_50 = [i for i in range(51) if i % 2 == 0]
+print evens_to_50
+#like AC, list comprehension syntax is:
+new_list = [x for x in range(1,6)] # => [1, 2, 3, 4, 5]
+doubles = [x*2 for x in range(1,6)]  # => [2, 4, 6, 8, 10]
+doubles_by_3 = [x*2 for x in range(1,6) if (x*2)%3 == 0]  # => [6]
+#BC lists the squares of even numbers in range(1,11):
+even_squares = [x**2 for x in range(1,11) if x % 2 == 0]
+print even_squares  # => [4, 16, 36, 64, 100]
+#more syntax help for list comprehensions:
+c = ['C' for x in range(5) if x < 3]
+print c  # => ['C', 'C', 'C']
+#BC consists of cubes of numbers 1-10 only if cube is evenly divisible by 4:
+cubes_by_four = [x**3 for x in range(1,11) if (x**3) % 4 == 0]
+print cubes_by_four  # => [8, 64, 216, 512, 1000]
+
+#List slicing syntax:
+[start:end:stride]
+#start describes where slice starts(inclusive). end is where it ends(exclusive)
+#stride is the space between items in the sliced list. stride of 2 would select
+#every other item from original list:
+l = [i ** 2 for i in range(1, 11)]
+#AC Should be [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+print l[2:9:2] # => [9, 25, 49, 81]
+#more on slicing:
+to_five = ['A', 'B', 'C', 'D', 'E']
+print to_five[3:]  # => prints ['D', 'E']
+print to_five[:2]  # => prints ['A', 'B']
+print to_five[::2] # => print ['A', 'C', 'E']
+#default starting index is 0, default ending index is last item in list
+#and default stride is 1
+#BC prints only the odd numbers:
+my_list = range(1, 11) # List of numbers 1 - 10
+print my_list[::2] # => [1, 3, 5, 7, 9]
+#negative strides:
+letters = ['A', 'B', 'C', 'D', 'E']
+print letters[::-1] # => ['E', 'D', 'C', 'B', 'A']
+#BC prints range(101) backwards by 10s:
+to_one_hundred = range(101)
+backwards_by_tens = to_one_hundred[::-10]
+print backwards_by_tens  # => [100, 90, 80, 70, 60,..., 10, 0]
+
+#Lambda:
+#One of the more powerful aspects of Python is that it allows for a style of
+#programming called functional programming, which means that you're allowed to
+#pass functions around just as if they were variables or values. Sometimes we
+#take this for granted, but not all languages allow this!:
+lambda x: x % 3 == 0 #this is the same as BC:
+def by_three(x):
+    return x % 3 == 0
+#the function lambda creates is an anonymous function.
+#When we pass the lambda to filter, filter uses the lambda to determine what to
+#filter, and the second argument (my_list, which is just the numbers 0 ? 15) is
+#the list it does the filtering on:
+my_list = range(16)
+print filter(lambda x: x % 3 == 0, my_list) # => [0, 3, 6, 9, 12, 15]
+#BC is a lambda function that filters through languages and returns 'Python':
+languages = ["HTML", "JavaScript", "Python", "Ruby"]
+print filter(lambda x: x == languages[2], languages) # => ['Python']
+#BC is more work on lambda expressions and filter functions:
+squares = [x**2 for x in range(1,11)] #list comprehension that consists of the squares of numbers 1 to 10.
+print filter(lambda x: 30 <= x <= 70, squares) #prints out only the squares that are between 30 and 70.
+
+#iterating over dictionaries:
+movies = {
+	"Monty Python and the Holy Grail": "Great",
+	"Monty Python's Life of Brian": "Good",
+	"Monty Python's Meaning of Life": "Okay"
+}
+print movies.items() #prints out all items(key and value).  
+
+#another ex of list comprehensions:
+threes_and_fives = [x for x in range(1, 16) if x % 3 == 0 or x % 5 == 0]
+#AC creates a list of numbers 1-15 that are only divisible by 3 or 5.
+
+#List slicing:
+garbled = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
+message = garbled[::-2] # => saves new string: 'I am the secret message !' in message.
+#Lists are mutable(changeable) but strings aren't. when you slice a string, you get a new string.
+
+#filter():
+#filter() takes two arguments: the first is the function that tells it what to filter (in this case, 
+#your lambda expression), and the second is the object to perform the filtering on (the garbled string).
+
+#Lambda expressions with filter():
+garbled = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
+message = filter(lambda x: x != 'X', garbled) #filters out all the 'X's
+print message # => 'I am another secret message!'
+
+#Binary:
+one = 0b1
+two = 0b10
+three = 0b11
+four = 0b100
+five = 0b101
+six = 0b110
+seven = 0b111
+eight = 0b1000
+nine = 0b1001
+ten = 0b1010
+eleven = 0b1011
+twelve = 0b1100
+#bin() is pythons built-in function to turn an integer into binary in a string.
+#oct() converts a number into base 8 and hex() converts into base 16.
+print bin(1) #prints binary representation of 1(base10).
+for i in range(2,6): #prints binary rep of 2-5(base10).
+    print bin(i)
+
+#When given a string containing a number and the base that number is in, the function 
+#will return the value of that number converted to base ten:
+print int('110', 2) # => 6
+print int("1",2) # => 1
+print int("10",2) # => 2
+print int("111",2) # => 7
+print int("0b100",2) # => 4
+print int(bin(5),2) # => 5
+print int('11001001', 2) # => 201
+
+# Left Bit Shift (<<)  
+0b000001 << 2 == 0b000100 (1 << 2 = 4)
+0b000101 << 3 == 0b101000 (5 << 3 = 40)       
+# Right Bit Shift (>>)
+0b0010100 >> 3 == 0b000010 (20 >> 3 = 2)
+0b0000010 >> 2 == 0b000000 (2 >> 2 = 0) 
+#BC is more example of shifting left/right while staying positive:
+shift_right = 0b1100 
+shift_left = 0b1 
+shift_right = shift_right >> 2
+shift_left = shift_left << 2
+print bin(shift_right) # => 12 to 3
+print bin(shift_left) # => 1 to 4
+
+#Below are four bitwise operators (&, |, ^, and ~):
+#The bitwise AND (&) operator compares two numbers on a bit level and 
+#returns a number where the bits of that number are turned on if the 
+#corresponding bits of both numbers are 1. For example:
+     a:   00101010   42
+     b:   00001111   15       
+===================
+ a & b:   00001010   10
+#Note that using the & operator can only result in a number that is less 
+#than or equal to the smaller of the two values.
+print bin(0b1110 & 0b101) # => 0b100 
+
+#The bitwise OR (|) operator compares two numbers on a bit level and returns 
+#a number where the bits of that number are turned on if either of the corresponding 
+#bits of either number are 1. For example:
+    a:  00101010  42
+    b:  00001111  15       
+================
+a | b:  00101111  47
+#Note that the bitwise | operator can only create results that are greater than or 
+#equal to the larger of the two integer inputs.
+print bin(0b1110 | 0b101) # => 0b1111
+
+#The XOR (^) or exclusive or operator compares two numbers on a bit level and 
+#returns a number where the bits of that number are turned on if either of the 
+#corresponding bits of the two numbers are 1, but not both.
+    a:  00101010   42
+    b:  00001111   15       
+================
+a ^ b:  00100101   37
+#Keep in mind that if a bit is off in both numbers, it stays off in the result. 
+#Note that XOR-ing a number with itself will always result in 0.
+print bin(0b1110 ^ 0b101) # => 0b1011
+
+#The bitwise NOT operator (~) just flips all of the bits in a single number. 
+#What this actually means to the computer is actually very complicated, so we're 
+#not going to get into it. Just know that mathematically, this is equivalent to 
+#adding one to the number and then making it negative.
+print ~1 # => -2
+print ~2 # => -3
+print ~3 # => -4
+print ~42 # => -43
+print ~123 # => -124
+
+#A bit mask is just a variable that aids you with bitwise operations. A bit mask 
+#can help you turn specific bits on, turn others off, or just collect data from an 
+#integer about which bits are on or off:
+num  = 0b1100
+mask = 0b0100 #this bit mask is set up to see if third bit is on
+desired = num & mask
+if desired > 0:
+    print "Bit was on"
+#another example:
+def check_bit4(x):
+    mask = 0b1000 #bit mask is used to see if fourth bit is on
+    if x & mask > 0:
+        return 'on'
+    else:
+        return 'off'
+		
+#You can also use masks to turn a bit in a number on using |. For example, let's say 
+#I want to make sure the rightmost bit of number a is turned on. I could do this:
+a = 0b110 # 6
+mask = 0b1 # 1
+desired =  a | mask # 0b111, or 7
+#| will turn a bit on if it is off or leave it on if it is already on.
+a = 0b10111011
+mask = 0b100 #this ensures third bit from right is on
+desired = a | mask
+print bin(desired) 
+
+#Using the XOR (^) operator is very useful for flipping bits. Using ^ on a bit with 
+#the number one will return a result where that bit is flipped:
+a = 0b110 # 6
+mask = 0b111 # 7
+desired =  a ^ mask # 0b1
+#another example:
+a = 0b11101110
+mask = 0b11111111 #mask must be as long as 'a' 
+desired = a ^ mask
+print bin(desired) # => 0b10001  => opposite of 'a'
+
+#you can also use the left shift (<<) and right shift (>>) operators to slide masks into place.
+a = 0b101 
+mask = (0b1 << 9)  # One less than ten since you need to only move 9 places to reach 10th bit
+desired = a ^ mask #using the xor operator to turn on desired bit
+#Let's say that I want to turn on the 10th bit from the right of the integer a.
+#Instead of writing out the entire number, we slide a bit over using the << operator.
+#We use 9 because we only need to slide the mask nine places over from the first bit to reach the tenth bit.
+def flip_bit(number, n):
+    mask = (0b1 << (n-1)) #flips the nth bit(with ones bit being first bit)
+    return bin(number^mask)
+	
+#Classes: Basic format:
+class Animal(object): #for now, our classes will inherit from the object class
+    def __init__(self): #always takes at least one argument, self.  
+        pass # pass doesn't do anything but is useful as a placeholder where Python expects an expression.
+#You may have noticed in our example back in the first exercise that we started our class definition off 
+#with an odd-looking function: __init__(). This function is required for classes, and it's used to initialize 
+#the objects it creates. __init__() always takes at least one argument, self, that refers to the object 
+#being created. You can think of __init__() as the function that "boots up" each object the class creates.
+#BC is continuation of class(basic format):
+class Animal(object):
+    def __init__(self, name):
+        self.name = name
+zebra = Animal('Jeffrey')
+print zebra.name  # => Jeffrey
+
+#BC is another example of classes:
+# Class definition
+class Animal(object):
+    """Makes cute animals."""
+    # For initializing our instance objects
+    def __init__(self, name, age, is_hungry):
+        self.name = name
+        self.age = age
+        self.is_hungry = is_hungry
+# Note that self is only used in the __init__()
+# function definition; we don't need to pass it
+# to our instance objects.
+zebra = Animal("Jeffrey", 2, True)
+giraffe = Animal("Bruce", 1, False)
+panda = Animal("Chad", 7, True)
+print zebra.name, zebra.age, zebra.is_hungry # => Jeffrey 2 True
+print giraffe.name, giraffe.age, giraffe.is_hungry # => Bruce 1 False
+print panda.name, panda.age, panda.is_hungry # => Chad 7 True
+
+#Scope: The scope of a variable is the context in which it's visible to the program.
+#Note that each individual animal gets its own name and age (since they're all initialized individually), 
+#but they all have access to the member variable is_alive, since they're all members of the Animal class:
+class Animal(object):
+    """Makes cute animals."""
+    is_alive = True
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+zebra = Animal("Jeffrey", 2)
+giraffe = Animal("Bruce", 1)
+panda = Animal("Chad", 7)
+print zebra.name, zebra.age, zebra.is_alive
+print giraffe.name, giraffe.age, giraffe.is_alive
+print panda.name, panda.age, panda.is_alive
+#It may surprise you to learn that not all variables are accessible to all parts of a Python program 
+#at all times. When dealing with classes, you can have variables that are available everywhere 
+#(global variables), variables that are only available to members of a certain class (member variables), 
+#and variables that are only available to particular instances of a class (instance variables).
+
+#When a class has its own functions, those functions are called methods. You've already seen one such method:
+# __init__(). But you can also define your own methods:
+class Animal(object):
+    """Makes cute animals."""
+    is_alive = True # member variable which applies to all class members
+	health = 'good' # another member variable
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def description(self): #another method
+        print self.name
+        print self.age
+hippo = Animal('Pyo', 7)
+sloth = Animal('Slowra', 2.5)
+ocelot = Animal('Claws', 3)
+hippo.description() # => Pyo, 7 both are its own line
+print hippo.health # => good
+print sloth.health # => good
+print ocelot.health # => good
+
+#BC is expansion of AC:
+class ShoppingCart(object):
+    """Creates shopping cart objects
+    for users of our fine website."""
+    items_in_cart = {}
+    def __init__(self, customer_name):
+        self.customer_name = customer_name
+    def add_item(self, product, price):
+        """Add product to the cart."""
+        if not product in self.items_in_cart:
+            self.items_in_cart[product] = price
+            print product + " added."
+        else:
+            print product + " is already in the cart."
+    def remove_item(self, product):
+        """Remove product from the cart."""
+        if product in self.items_in_cart:
+            del self.items_in_cart[product]
+            print product + " removed."
+        else:
+            print product + " is not in the cart."
+my_cart = ShoppingCart('Pyo')
+my_cart.add_item('BTC', 579.30) # => BTC added.
+
+#Inheritance is the process by which one class takes on the attributes and methods of another, 
+#and it's used to express an is-a relationship. For example, a Panda is a bear, so a Panda class 
+#could inherit from a Bear class. However, a Toyota is not a Tractor, so it shouldn't inherit 
+#from the Tractor class (even if they have a lot of attributes and methods in common). Instead, 
+#both Toyota and Tractor could ultimately inherit from the same Vehicle class.
+
+#Inheritance syntax:
+class Shape(object):
+    def __init__(self, number_of_sides):
+        self.number_of_sides = number_of_sides
+class Triangle(Shape): # this Triangle class will inherit from the Shape class
+    def __init__(self, side1, side2, side3):
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+#On the flip side, sometimes you'll be working with a derived class (or subclass) and realize 
+#that you've overwritten a method or attribute defined in that class' base class 
+#(also called a parent or superclass) that you actually need. Have no fear! You can directly 
+#access the attributes or methods of a superclass with Python's built-in super call:
+class Derived(Base):
+   def m(self):
+       return super(Derived, self).m() # m() is a method from the base class
+#another example of AC:
+class Employee(object):
+    """Models real-life employees!"""
+    def __init__(self, employee_name):
+        self.employee_name = employee_name
+    def calculate_wage(self, hours):
+        self.hours = hours
+        return hours * 20.00
+class PartTimeEmployee(Employee):
+    def calculate_wage(self, hours):
+        self.hours = hours
+        return hours * 12.00
+    def full_time_wage(self, hours):
+        return super(PartTimeEmployee, self).calculate_wage(hours)
+milton = PartTimeEmployee('Milton')
+print milton.full_time_wage(10) # => 200
+
+#More practice with classes:
+class Triangle(object):
+    def __init__(self, angle1, angle2, angle3):
+        self.angle1 = angle1
+        self.angle2 = angle2
+        self.angle3 = angle3
+    number_of_sides = 3 #member variable
+    def check_angles(self): #method
+        if self.angle1 + self.angle2 + self.angle3 == 180:
+            return True
+        else:
+            return False
+my_triangle = Triangle(90, 30, 60)
+print my_triangle.number_of_sides
+print my_triangle.check_angles()
+class Equilateral(Triangle):
+    angle = 60
+    def __init__(self):
+        self.angle1 = self.angle
+        self.angle2 = self.angle
+        self.angle3 = self.angle
+
+#BC is more practice with classes:
+class Car(object):
+    condition = "new"
+    def __init__(self, model, color, mpg):
+        self.model = model
+        self.color = color
+        self.mpg   = mpg
+    def display_car(self):
+        mpg = str(self.mpg)
+        print 'This is a %s %s with %s MPG.' % (self.color, self.model, self.mpg)
+    def drive_car(self):
+        self.condition = 'used'
+class ElectricCar(Car):
+    def __init__(self, battery_type, model, color, mpg):
+        self.battery_type = battery_type
+        self.model = model
+        self.color = color
+        self.mpg = mpg
+    def drive_car(self):
+        self.condition = "like new"
+my_car = ElectricCar("molten salt", "DeLorean", "silver", 88)
+print my_car.condition
+my_car.drive_car()
+print my_car.condition
+
+#more class practice:
+class Point3D(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+    def __repr__(self):
+        print '(%d, %d, %d)' % (self.x, self.y, self.z)
+my_point = Point3D(1, 2, 3)
+print my_point.__repr__()
+#One useful class method to override is the built-in __repr__() method, which is short for 
+#representation; by providing a return value in this method, we can tell Python how to represent 
+#an object of our class (for instance, when using a print statement).
+
+#File Input/Output(i/o) syntax:
+f = open("output.txt", "w")
+#AC told Python to open output.txt in "w" mode ("w" stands for "write"). We stored the result of 
+#this operation in a file object, f.
+#You can open files in write-only mode ("w"), read-only mode ("r"), read and write mode ("r+"), 
+#and append mode ("a", which adds any new data you write to the file to the end of the file).
+#We can write to a Python file like so:
+my_file.write("Data to be written")
+#The write() function takes a string argument, so we'll need to do a few things here:
+#You must close the file. You do this simply by calling my_file.close() (we did this for you in 
+#the last exercise). If you don't close your file, Python won't write to it properly. From here on 
+#out, you gotta close your files! BC is example of file I/O:
+my_list = [i**2 for i in range(1,11)] #creates a list comprehension
+my_file = open("output.txt", "r+") #creates output.txt file and makes it readable/writeable
+for item in my_list: #iterates through my_list
+    my_file.write(str(item) + '\n') #writes what's in parentheses - '\n' ensures each value is on its own line 
+my_file.close() #you must close your files OUTSIDE your iteration in order for the writing to be saved
+#syntax for reading our output.txt:
+my_file = open('output.txt', 'r')
+print my_file.read()
+my_file.close()
+#syntax for reading from output.txt line by line (opening a file and calling .readline() you'll get the first 
+#line of the file; subsequent calls to .readline() will return successive lines:
+my_file = open('text.txt', 'r')
+print my_file.readline() #prints first line in text.txt
+print my_file.readline() #prints second line in text.txt
+print my_file.readline() #prints third line in text.txt
+my_file.close() #during the i/o process, data is buffered(held in temp location before being written to
+#file). python doesn't 'flush the buffer'(write data to file) until it's sure you're done writing.
+#Programming is all about getting the computer to do the work. Is there a way to get Python to automatically 
+#close our files for us? Of course there is. This is Python. You may not know this, but file objects 
+#contain a special pair of built-in methods: __enter__() and __exit__(). The details aren't important, but what 
+#is important is that when a file object's __exit__() method is invoked, it automatically closes the file. 
+#How do we invoke this method? With with and as. The syntax looks like this:
+with open("file", "mode") as variable:
+    # Read or write to the file
+#BC is example of above:
+with open("text.txt", "w") as textfile: 
+	textfile.write("Success!")
+#no need for textfile.close() function with AC
+#so.....the code blocks below are the same:
+with open('text.txt', 'w') as my_file:
+    my_file.write('I\'m getting the hang of File I/O!')
+#AC is same as BC:
+my_file = open('text.txt', 'w')
+my_file.write('I\'m getting the hang of File I/O!')
+my_file.close()
+#if you're not sure if a particular file is closed, python has a builtin function to help. if you have a file object,
+#'my_file' and you want to see if it's closed, you'd write:
+my_file.close #if the file is closed, the value True will be returned and False if not closed
+#to bring it all together:
+with open('text.txt', 'w') as my_file:
+    my_file.write('I\'m getting the hang of File I/O!')
+if (not my_file.closed):
+    my_file.close()
+print my_file.closed #prints 'True'
+
+
+
+
+
+
+
+

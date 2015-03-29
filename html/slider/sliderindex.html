@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Slide Album</title>
+	<link type="text/css" rel="stylesheet" href="slidercss.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+    <script type="text/javascript" src="sliderjs.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+	<div id="slider">
+		<img id='1' src="images/image1.png">
+		<img id='2' src="images/image2.png">
+		<img id='3' src="images/image3.jpg">
+		<img id='4' src="images/image4.jpg">
+	</div>
+
+	<!-- # is used so it doesn't go to any other page -->
+	<!-- onclick parameter executes the prev() function when clicked and when done it returns false
+	so that it won't return to the # symbol which will refresh the browser -->
+	<a href="#" class="left" onclick="prev(); return false;">Previous</a>	
+	<a href="#" class="right" onclick="next(); return false;">Next</a>
+</div>
+</body>
+
+
+</html>

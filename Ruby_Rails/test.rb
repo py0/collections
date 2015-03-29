@@ -1,0 +1,1 @@
+print 'hello, world \n fuck y\'all'
